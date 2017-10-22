@@ -5,7 +5,7 @@ const io = require('socket.io')(http);
 let port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.sendFile('/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 // User Hash
@@ -20,10 +20,10 @@ io.on('connection', function(socket) {
     userHash[socket.id] = name;
     io.sockets.emit("publish", {value: msg});
     // Set default values
-    // io.sockets.emit("NumberOfFloors", {value:1};
-    // io.sockets.emit("FloorHeight", {value:1});
-    // io.sockets.emit("FloorDepth", {value:1});
-    // io.sockets.emit("FloorWidth", {value:1});
+    io.sockets.emit("NumberOfFloors", {value:1});
+    io.sockets.emit("FloorHeight", {value:1});
+    io.sockets.emit("FloorDepth", {value:1});
+    io.sockets.emit("FloorWidth", {value:1});
     console.log(msg);
   });
 
