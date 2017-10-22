@@ -5,7 +5,7 @@ const io = require('socket.io')(http);
 let port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile('/index.html');
 });
 
 // User Hash
