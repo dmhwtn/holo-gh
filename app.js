@@ -19,11 +19,6 @@ io.on('connection', function(socket) {
     var msg = name + " is connected.";
     userHash[socket.id] = name;
     io.sockets.emit("publish", {value: msg});
-    // Set default values
-    io.sockets.emit("NumberOfFloors", {value:1});
-    io.sockets.emit("FloorHeight", {value:1});
-    io.sockets.emit("FloorDepth", {value:1});
-    io.sockets.emit("FloorWidth", {value:1});
     console.log(msg);
   });
 
@@ -77,15 +72,15 @@ io.on('connection', function(socket) {
     io.sockets.emit("unity",{"meshes":sendingData});
   });
 
-  socket.on("gh", function (data) {
-    console.log(data.length);
-    var sendingData = [];
-    for (var i = 0; i < data.length; i++){
-      var meshData = data[i];
-      sendingData.push(meshData.mesh.toString("base64"));
-    }
-    io.sockets.emit("unity",{"meshes":sendingData});
-  });
+  // socket.on("gh", function (data) {
+  //   console.log(data.length);
+  //   var sendingData = [];
+  //   for (var i = 0; i < data.length; i++){
+  //     var meshData = data[i];
+  //     sendingData.push(meshData.mesh.toString("base64"));
+  //   }
+  //   io.sockets.emit("unity",{"meshes":sendingData});
+  // });
 
   // Custom Event to Send Message
   socket.on("publishing", function (data) {
