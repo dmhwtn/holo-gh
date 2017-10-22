@@ -20,10 +20,10 @@ io.on('connection', function(socket) {
     userHash[socket.id] = name;
     io.sockets.emit("publish", {value: msg});
     // Set default values
-    io.sockets.emit("NumberOfFloors", {value:1};
-    io.sockets.emit("FloorHeight", {value:1});
-    io.sockets.emit("FloorDepth", {value:1});
-    io.sockets.emit("FloorWidth", {value:1});
+    // io.sockets.emit("NumberOfFloors", {value:1};
+    // io.sockets.emit("FloorHeight", {value:1});
+    // io.sockets.emit("FloorDepth", {value:1});
+    // io.sockets.emit("FloorWidth", {value:1});
     console.log(msg);
   });
 
