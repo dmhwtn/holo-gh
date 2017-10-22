@@ -1,5 +1,5 @@
 const app = require('express')();
-//const http = require('http').Server(app);
+const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 let port = process.env.PORT || 3000;
@@ -20,7 +20,7 @@ io.on('connection', function(socket) {
     userHash[socket.id] = name;
     io.sockets.emit("publish", {value: msg});
     // Set default values
-    io.sockets.emit("NumberOfFloors", {value:1}
+    io.sockets.emit("NumberOfFloors", {value:1};
     io.sockets.emit("FloorHeight", {value:1});
     io.sockets.emit("FloorDepth", {value:1});
     io.sockets.emit("FloorWidth", {value:1});
@@ -97,6 +97,6 @@ io.on('connection', function(socket) {
 
 });
 
-//http.listen(port, function() {
-//  console.log('Listening on port 3000...');
-//});
+http.listen(port, function() {
+  console.log('Listening on port 3000...');
+});
