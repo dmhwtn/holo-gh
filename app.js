@@ -19,6 +19,10 @@ io.on('connection', function(socket) {
     var msg = name + " is connected.";
     userHash[socket.id] = name;
     io.sockets.emit("publish", {value: msg});
+    io.sockets.emit("NumberOfFloors", {value:5});
+    io.sockets.emit("FloorHeight", {value:5});
+    io.sockets.emit("FloorWidth", {value:5});
+    io.sockets.emit("FloorDepth", {value:5});
     console.log(msg);
   });
 
