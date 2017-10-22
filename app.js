@@ -1,5 +1,5 @@
 const app = require('express')();
-const http = require('http').Server(app);
+//const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 let port = process.env.PORT || 3000;
@@ -97,6 +97,6 @@ io.on('connection', function(socket) {
 
 });
 
-http.listen(port, function() {
-  console.log('Listening on port 3000...');
-});
+//http.listen(port, function() {
+//  console.log('Listening on port 3000...');
+//});
