@@ -89,48 +89,48 @@ io.on('connection', function(socket) {
     io.sockets.emit("test", [{mesh:"ABC"},{mesh:"123"}]);
   });
 
-  //-- Bench Variables --//
+  //-- Building Variables --//
 
-  // BenchLength
-  socket.on("BenchLength", function(data) {
+  // Length
+  socket.on("Length", function(data) {
     console.log("Message recieved!");
     console.log("Value: " + data.value);
-    io.sockets.emit("BenchLength", {value:data.value});
+    io.sockets.emit("Length", {value:data.value});
   });
 
-  // UDeviations
-  socket.on("UDeviations", function(data) {
+  // Width
+  socket.on("Width", function(data) {
     console.log("Message recieved!");
     console.log("Value: " + data.value);
-    io.sockets.emit("UDeviations", {value:data.value});
+    io.sockets.emit("Width", {value:data.value});
   });
 
-  // VDeviations
-  socket.on("VDeviations", function(data) {
+  // Height
+  socket.on("Height", function(data) {
     console.log("Message recieved!");
     console.log("Value: " + data.value);
-    io.sockets.emit("VDeviations", {value:data.value});
+    io.sockets.emit("Height", {value:data.value});
   });
 
-  // RandomSeed
-  socket.on("RandomSeed", function(data) {
+  // NumberOfColumns
+  socket.on("NumberOfColumns", function(data) {
     console.log("Message recieved!");
     console.log("Value: " + data.value);
-    io.sockets.emit("RandomSeed", {value:data.value});
+    io.sockets.emit("NumberOfColumns", {value:data.value});
   });
 
-  // SectionDistance
-  socket.on("SectionDistance", function(data) {
+  // ColumnRadius
+  socket.on("ColumnRadius", function(data) {
     console.log("Message recieved!");
     console.log("Value: " + data.value);
-    io.sockets.emit("SectionDistance", {value:data.value});
+    io.sockets.emit("ColumnRadius", {value:data.value});
   });
 
-  // SectionSize
-  socket.on("SectionSize", function(data) {
+  // GableHeight
+  socket.on("GableHeight", function(data) {
     console.log("Message recieved!");
     console.log("Value: " + data.value);
-    io.sockets.emit("SectionSize", {value:data.value});
+    io.sockets.emit("GableHeight", {value:data.value});
   });
 
 });
