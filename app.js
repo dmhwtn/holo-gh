@@ -5,7 +5,7 @@ const io = require('socket.io')(http);
 let port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.send("Hello");
 });
 
 // User Hash
@@ -19,10 +19,6 @@ io.on('connection', function(socket) {
     var msg = name + " is connected.";
     userHash[socket.id] = name;
     io.sockets.emit("publish", {value: msg});
-    io.sockets.emit("NumberOfFloors", {value:5});
-    io.sockets.emit("FloorHeight", {value:5});
-    io.sockets.emit("FloorWidth", {value:5});
-    io.sockets.emit("FloorDepth", {value:5});
     console.log(msg);
   });
 
@@ -93,8 +89,52 @@ io.on('connection', function(socket) {
     io.sockets.emit("test", [{mesh:"ABC"},{mesh:"123"}]);
   });
 
+  //-- Bench Variables --//
+
+  // BenchLength
+  socket.on("BenchLength", function(data) {
+    console.log("Message recieved!");
+    console.log("Value: " + data.value);
+    io.sockets.emit("BenchLength", {value:data.value});
+  });
+
+  // UDeviations
+  socket.on("UDeviations", function(data) {
+    console.log("Message recieved!");
+    console.log("Value: " + data.value);
+    io.sockets.emit("UDeviations", {value:data.value});
+  });
+
+  // VDeviations
+  socket.on("VDeviations", function(data) {
+    console.log("Message recieved!");
+    console.log("Value: " + data.value);
+    io.sockets.emit("VDeviations", {value:data.value});
+  });
+
+  // RandomSeed
+  socket.on("RandomSeed", function(data) {
+    console.log("Message recieved!");
+    console.log("Value: " + data.value);
+    io.sockets.emit("RandomSeed", {value:data.value});
+  });
+
+  // SectionDistance
+  socket.on("SectionDistance", function(data) {
+    console.log("Message recieved!");
+    console.log("Value: " + data.value);
+    io.sockets.emit("SectionDistance", {value:data.value});
+  });
+
+  // SectionSize
+  socket.on("SectionSize", function(data) {
+    console.log("Message recieved!");
+    console.log("Value: " + data.value);
+    io.sockets.emit("SectionSize", {value:data.value});
+  });
 
 });
+
 
 http.listen(port, function() {
   console.log('Listening on port 3000...');
